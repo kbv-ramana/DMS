@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h2>Upload Document</h2>
+
+  <input type="text"
+         class="form-control mb-3"
+         placeholder="Title"
+         [(ngModel)]="title">
+
+  <input type="text"
+         class="form-control mb-3"
+         placeholder="Tags (comma separated)"
+         [(ngModel)]="tags">
+
+  <input type="file"
+         class="form-control mb-3"
+         (change)="onFileSelected($event)">
+
+  <button class="btn btn-primary" (click)="upload()">Upload</button>
+</div>

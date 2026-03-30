@@ -1,0 +1,84 @@
+<div class="container mt-4">
+
+  <h3>Your Files</h3>
+
+  <div class="grid-container">
+
+    <div class="file-card" *ngFor="let doc of documents">
+
+      <!-- 3-dot menu -->
+      <div 
+        class="menu-icon"
+        (click)="toggleMenu(doc._id); $event.stopPropagation()">
+        ⋮
+      </div>
+
+      <!-- 🔥 CLICKABLE AREA -->
+      <div 
+        class="file-click-area"
+        (click)="openFile(doc.filePath)">
+
+        <div class="file-icon">📄</div>
+
+        <div class="file-name">
+          {{ doc.title }}
+        </div>
+
+      </div>
+
+      <!-- Popup menu -->
+      <div class="menu-popup" *ngIf="activeMenu === doc._id">
+
+        <a 
+          [href]="'http://localhost:5000/' + doc.filePath"
+          target="_blank">
+          Download
+        </a>
+
+        <button (click)="openShare(doc._id)">
+          Share
+        </button>
+
+        <button (click)="deleteDocument(doc._id)">
+          Delete
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Empty -->
+  <p *ngIf="documents.length === 0" class="text-center mt-4 text-muted">
+    No files uploaded 📂
+  </p>
+
+  <!-- Share popup -->
+  <div *ngIf="showShareBox" class="share-box">
+
+    <h4>Share Document</h4>
+
+    <input 
+      type="email"
+      class="form-control mb-2"
+      placeholder="Enter email"
+      [(ngModel)]="shareEmail"
+    />
+
+    <select class="form-control mb-2" [(ngModel)]="shareAccess">
+      <option value="viewer">Viewer</option>
+      <option value="editor">Editor</option>
+    </select>
+
+    <button class="btn btn-success me-2" (click)="shareDocument()">
+      Share
+    </button>
+
+    <button class="btn btn-secondary" (click)="cancelShare()">
+      Cancel
+    </button>
+
+  </div>
+
+</div>

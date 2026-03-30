@@ -1,0 +1,41 @@
+<!-- Top Bar -->
+<div class="topbar" *ngIf="showSidebar()">
+
+  <button class="menu-btn" (click)="toggleSidebar()">☰</button>
+
+  <input 
+    type="text"
+    class="search-box"
+    placeholder="Search documents..."
+    [(ngModel)]="searchQuery"
+    (keyup.enter)="search()"
+  />
+
+  <button class="upload-btn" (click)="goToUpload()">+ Upload</button>
+
+  <!-- Profile -->
+  <div class="profile-container">
+
+    <div class="profile-icon" (click)="toggleProfile()">👤</div>
+
+    <div class="profile-dropdown" *ngIf="profileOpen">
+      <p class="email">{{ userEmail }}</p>
+      <button (click)="logout()">Logout</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" [class.open]="isSidebarOpen">
+
+  <a routerLink="/dashboard" (click)="closeSidebar()">🏠 Dashboard</a>
+  <a routerLink="/upload" (click)="closeSidebar()">📤 Upload</a>
+
+</div>
+
+<!-- Content -->
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

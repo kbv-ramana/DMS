@@ -1,0 +1,86 @@
+/* Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Card */
+.file-card {
+  position: relative;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.file-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Click area */
+.file-click-area {
+  cursor: pointer;
+}
+
+/* Icon */
+.file-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* Name */
+.file-name {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+/* 3 dots */
+.menu-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Popup */
+.menu-popup {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* Menu items */
+.menu-popup a,
+.menu-popup button {
+  padding: 8px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-popup a:hover,
+.menu-popup button:hover {
+  background: #f0f0f0;
+}
+
+/* Share box */
+.share-box {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+}

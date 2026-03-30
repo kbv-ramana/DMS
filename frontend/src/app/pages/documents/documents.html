@@ -1,0 +1,104 @@
+<div class="container mt-5">
+
+  <h2>Documents</h2>
+
+  <!-- 🔥 Tabs -->
+  <div class="mb-3">
+    <button class="btn btn-primary me-2" (click)="loadMyDocuments()">
+      My Files
+    </button>
+
+    <button class="btn btn-success" (click)="loadSharedDocuments()">
+      Shared With Me
+    </button>
+  </div>
+
+  <!-- 🔍 Local Search (optional backup) -->
+  <input 
+    class="form-control mb-3"
+    placeholder="Search..."
+    [(ngModel)]="keyword"
+    (keyup)="searchDocuments()"
+  />
+
+  <!-- 📂 Table -->
+  <table class="table table-bordered" *ngIf="documents.length > 0">
+
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Tags</th>
+        <th>File</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let doc of documents">
+
+        <td>{{ doc.title }}</td>
+        <td>{{ doc.tags.join(', ') }}</td>
+        <td>{{ doc.filePath }}</td>
+
+        <td>
+          <!-- Download -->
+          <a 
+            [href]="'http://localhost:5000/' + doc.filePath"
+            target="_blank"
+            class="btn btn-success btn-sm me-2">
+            Open
+          </a>
+
+          <!-- Share -->
+          <button 
+            class="btn btn-primary btn-sm me-2"
+            (click)="openShare(doc._id)">
+            Share
+          </button>
+
+          <!-- Delete -->
+          <button 
+            class="btn btn-danger btn-sm"
+            (click)="deleteDocument(doc._id)">
+            Delete
+          </button>
+        </td>
+
+      </tr>
+    </tbody>
+
+  </table>
+
+  <!-- ❌ Empty -->
+  <p *ngIf="documents.length === 0" class="text-center text-muted">
+    No documents found 📂
+  </p>
+
+  <!-- 🔥 Share Popup -->
+  <div *ngIf="showShareBox" class="mt-4 p-3 border rounded">
+
+    <h4>Share Document</h4>
+
+    <input 
+      type="email"
+      class="form-control mb-2"
+      placeholder="Enter email"
+      [(ngModel)]="shareEmail"
+    />
+
+    <select class="form-control mb-2" [(ngModel)]="shareAccess">
+      <option value="viewer">Viewer</option>
+      <option value="editor">Editor</option>
+    </select>
+
+    <button class="btn btn-success me-2" (click)="shareDocument()">
+      Share
+    </button>
+
+    <button class="btn btn-secondary" (click)="cancelShare()">
+      Cancel
+    </button>
+
+  </div>
+
+</div>

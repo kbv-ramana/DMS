@@ -1,0 +1,98 @@
+/* Topbar */
+.topbar {
+  height: 60px;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  color: white;
+}
+
+/* Menu button */
+.menu-btn {
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Search */
+.search-box {
+  flex: 1;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Upload */
+.upload-btn {
+  margin-left: 10px;
+  padding: 6px 10px;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: -220px;
+  width: 220px;
+  height: 100%;
+  background: #1e293b;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+/* Sidebar open */
+.sidebar.open {
+  left: 0;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: white;
+  margin-bottom: 12px;
+  text-decoration: none;
+}
+
+/* Content */
+.content {
+  padding: 20px;
+  margin-top: 60px;
+}
+
+/* Profile */
+.profile-container {
+  position: relative;
+  margin-left: 15px;
+}
+
+.profile-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.profile-dropdown button {
+  width: 100%;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+}

@@ -1,0 +1,26 @@
+<div class="container mt-5">
+
+  <h3>Access Document</h3>
+
+  <input 
+    class="form-control mb-2"
+    placeholder="Enter your email"
+    [(ngModel)]="email"
+  />
+
+  <button class="btn btn-primary" (click)="verifyAccess()">
+    Verify
+  </button>
+
+  <div *ngIf="document" class="mt-4">
+    <h4>{{ document.title }}</h4>
+
+    <a 
+      [href]="'http://localhost:5000/' + document.filePath"
+      target="_blank"
+      class="btn btn-success">
+      Download File
+    </a>
+  </div>
+
+</div>
